@@ -1,0 +1,177 @@
+/* --- client/src/css/FeaturedSection.css --- */
+
+/* 1. CONTAINER CHUNG */
+.featured-section-container {
+    background-color: #fcf8f3; /* Màu nền rất nhạt như mẫu */
+    padding: 80px 20px; /* Padding trên dưới và hai bên */
+    overflow: hidden; /* Đảm bảo không có thanh cuộn không mong muốn */
+    font-family: 'Raleway', sans-serif; /* Font mặc định cho phần này */
+}
+
+/* 2. KHUNG CHỨA NỘI DUNG (hai cột) */
+.featured-content-wrapper {
+    max-width: 1200px; /* Giới hạn chiều rộng nội dung */
+    margin: 0 auto; /* Căn giữa */
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 60px; /* Khoảng cách giữa hai cột */
+    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+}
+
+/* 3. CỘT TRÁI: HÌNH ẢNH */
+.featured-image-gallery {
+    flex: 1; /* Chiếm không gian còn lại */
+    min-width: 350px; /* Chiều rộng tối thiểu trước khi xuống dòng */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Tạo không gian xung quanh ảnh */
+}
+
+.main-product-image {
+    width: 70%; /* Kích thước ảnh chính */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Đổ bóng sâu */
+    z-index: 2;
+    position: relative;
+    display: block;
+}
+
+.small-product-image {
+    position: absolute;
+    width: 35%; /* Kích thước ảnh nhỏ hơn */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+/* Vị trí ảnh nhỏ */
+.small-product-image.top-left {
+    top: 0;
+    left: 0;
+    transform: translate(-30%, -30%) rotate(-10deg); /* Dịch chuyển và xoay */
+}
+.small-product-image.bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: translate(30%, 30%) rotate(15deg); /* Dịch chuyển và xoay */
+}
+
+/* 4. CỘT PHẢI: VĂN BẢN & NÚT */
+.featured-text-content {
+    flex: 1;
+    min-width: 350px;
+    text-align: left;
+    padding: 20px 0;
+}
+
+.featured-small-heading {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #888; /* Màu xám */
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.featured-large-heading {
+    font-family: 'Playfair Display', serif; /* Font chữ serif cho tiêu đề lớn */
+    font-size: 40px;
+    font-weight: 700;
+    color: #1a2a4b; /* Màu xanh đậm */
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.featured-description {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* 5. NÚT "SHOP SERUM" */
+.featured-button {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid #1a2a4b;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #1a2a4b;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.featured-button:hover {
+    background-color: #1a2a4b;
+    color: #fff;
+}
+
+/* 6. Responsive adjustments */
+@media (max-width: 768px) {
+    .featured-content-wrapper {
+        flex-direction: column; /* Xếp chồng cột trên mobile */
+        text-align: center;
+        gap: 30px;
+    }
+    .featured-image-gallery {
+        width: 100%;
+        min-width: unset;
+        margin-bottom: 0;
+    }
+    .featured-text-content {
+        width: 100%;
+        min-width: unset;
+        padding: 0;
+    }
+    .featured-large-heading {
+        font-size: 32px;
+    }
+}/* --- client/src/css/FeaturedSection.css --- */
+
+/* ... (Các style cũ giữ nguyên) ... */
+
+/* Đảo ngược thứ tự cột khi có class 'reversed' */
+.featured-content-wrapper.reversed {
+    flex-direction: row-reverse; /* Đảo ngược thứ tự ảnh và chữ */
+}
+
+/* Đảm bảo văn bản vẫn căn trái khi cột chữ ở bên trái */
+.featured-content-wrapper.reversed .featured-text-content {
+    text-align: left; /* Giữ văn bản căn trái */
+}
+
+/* Responsive adjustments (đảm bảo trên mobile vẫn xếp chồng) */
+@media (max-width: 768px) {
+    .featured-content-wrapper {
+        flex-direction: column; /* Trên mobile vẫn xếp chồng */
+        text-align: center;
+        gap: 30px;
+    }
+    .featured-content-wrapper.reversed {
+        flex-direction: column; /* Vẫn xếp chồng trên mobile */
+    }
+    .featured-image-gallery {
+        width: 100%;
+        min-width: unset;
+        margin-bottom: 30px;
+    }
+    .featured-text-content {
+        width: 100%;
+        min-width: unset;
+        padding: 0;
+    }
+    .featured-large-heading {
+        font-size: 32px;
+    }
+}

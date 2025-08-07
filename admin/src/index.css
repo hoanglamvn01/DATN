@@ -1,0 +1,29 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-height: 100vh; /* Đảm bảo body chiếm toàn bộ chiều cao màn hình */
+  place-items: flex-start; /* Căn nội dung lên đầu */
+  justify-content: center; /* Căn giữa nội dung nếu cần */
+  background-color: #f0f2f5; /* Nền nhẹ nhàng hơn cho admin */
+  color: #333; /* Màu chữ mặc định */
+}
+
+#root {
+  width: 100%; /* Root chiếm toàn bộ chiều rộng */
+  /* Remove other styles like max-width, margin, padding, text-align */
+}

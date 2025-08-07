@@ -1,0 +1,185 @@
+/* --- CSS HOÀN CHỈNH CHO GIAO DIỆN GIỐNG THE BODY SHOP --- */
+
+/* 1. CONTAINER CHUNG */
+.products-we-love-container {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #fcf8f3;
+  overflow: hidden;
+}
+
+/* 2. TIÊU ĐỀ LỚN */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 35px;
+  font-weight: 700;
+  color: #1a2a4b;
+  margin-bottom: 40px;
+  text-transform: capitalize;
+}
+
+/* 3. THANH ĐIỀU HƯỚNG TAB */
+.tab-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+/* 4. NÚT TAB */
+.tab-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #888;
+  padding: 10px 0;
+  position: relative;
+  transition: color 0.3s;
+}
+
+/* 5. GẠCH CHÂN VÀ MÀU CHỮ KHI TAB ACTIVE */
+.tab-button.active {
+  color: #1a2a4b;
+  font-weight: 700;
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #f7b731;
+  animation: tab-underline-fade-in 0.3s ease-out;
+}
+
+/* 6. LƯỚI SẢN PHẨM CÓ THỂ LƯỚT NGANG */
+.product-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 30px;
+  padding: 0 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.product-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* 7. THẺ SẢN PHẨM (MỖI SẢN PHẨM) */
+.product-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  width: 260px; /* Chiều rộng cố định của mỗi thẻ */
+}
+
+/* 8. HIỆU ỨNG DI CHUỘT */
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 9. BADGE "BESTSELLER" */
+.product-badge {
+  background-color: #f7b731;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 10px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  border-radius: 4px;
+  z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 10. KHUNG ẢNH SẢN PHẨM */
+.product-image-container {
+  /* ✅ Sửa lỗi ảnh bị cắt: dùng 'contain' thay vì 'cover' */
+  width: 100%;
+  height: 260px; /* Chiều cao cố định của khung ảnh */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #fff; /* Nền trắng cho khung ảnh */
+}
+.product-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* ✅ QUAN TRỌNG: Ảnh hiển thị toàn bộ trong khung */
+  display: block;
+}
+
+/* 11. THÔNG TIN SẢN PHẨM */
+.product-info {
+  padding: 20px;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.product-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  height: 44px; /* Giữ chiều cao cố định cho 2 dòng tên */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* 12. PHẦN RATING VÀ CÁC ACTION BUTTON */
+.product-rating {
+  color: #ffc107;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.product-rating .rating-value {
+  color: #777;
+  margin-left: 5px;
+  font-style: italic;
+}
+
+/* ✅ STYLE MỚI: GIÁ VÀ ICON */
+.product-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.product-price {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a2a4b;
+}
+
+.icon-buttons {
+  display: flex;
+  gap: 12px; /* Khoảng cách giữa các icon */
+}
+
+.icon-buttons svg {
+  font-size: 24px;
+}

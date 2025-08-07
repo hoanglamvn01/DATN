@@ -1,0 +1,149 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Phấn Nền Cushion IOPE Air Fit Cushion SPF 50+",
+        "price": "1.250.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/56f1106472bb8eb8ccfe9c2ed76c8a97.webp",
+        "rating": 4,
+        "reviewCount": 543,
+        "brand": "IOPE"
+      },
+      {
+        "id": 2,
+        "name": "Kem Dưỡng Ẩm Neutrogena Hydro Boost",
+        "price": "450.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2kvnvi74r0ad7.webp",
+        "rating": 5,
+        "reviewCount": 1200,
+        "brand": "Neutrogena"
+      },
+      {
+        "id": 3,
+        "name": "Son MAC Matte Lipstick",
+        "price": "620.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m1spomodz80j0a.webp",
+        "rating": 4,
+        "reviewCount": 980,
+        "brand": "MAC"
+      },
+      {
+        "id": 4,
+        "name": "Kem Chống Nắng La Roche-Posay Anthelios",
+        "price": "350.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lw9i9l6s47a3bc.webp",
+        "rating": 5,
+        "reviewCount": 890,
+        "brand": "La Roche Posay"
+      },
+      {
+        "id": 5,
+        "name": "Tinh Chất The Ordinary Niacinamide 10% + Zinc 1%",
+        "price": "250.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2kvnvi74r0ad7.webp",
+        "rating": 4,
+        "reviewCount": 1500,
+        "brand": "The Ordinary"
+      },
+      {
+        "id": 6,
+        "name": "Tẩy Trang Some By Mi Bye Bye Blackhead",
+        "price": "300.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lw9i9l6s47a3bc.webp",
+        "rating": 4,
+        "reviewCount": 460,
+        "brand": "Some By Mi"
+      },
+      {
+        "id": 7,
+        "name": "Mặt Nạ Đất Sét La Roche Posay",
+        "price": "270.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2kvnvi74r0ad7.webp",
+        "rating": 4,
+        "reviewCount": 350,
+        "brand": "La Roche Posay"
+      },
+      {
+        "id": 8,
+        "name": "Tinh Chất Phục Hồi IOPE Bio Essence",
+        "price": "1.050.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lw9i9l6s47a3bc.webp",
+        "rating": 4,
+        "reviewCount": 234,
+        "brand": "IOPE"
+      },
+      {
+        "id": 9,
+        "name": "Kem Dưỡng The Ordinary Natural Moisturizing",
+        "price": "200.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lw9i9l6s47a3bc.webp",
+        "rating": 4,
+        "reviewCount": 1320,
+        "brand": "The Ordinary"
+      },
+      {
+        "id": 10,
+        "name": "Son Dưỡng Neutrogena Revitalizing Lip Balm",
+        "price": "180.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lw9i9l6s47a3bc.webp",
+        "rating": 3,
+        "reviewCount": 580,
+        "brand": "Neutrogena"
+      },
+      {
+        "id": 11,
+        "name": "Tẩy Trang MAC Cleanse Off Oil",
+        "price": "750.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lw9i9l6s47a3bc.webp",
+        "rating": 4,
+        "reviewCount": 430,
+        "brand": "MAC"
+      },
+      {
+        "id": 12,
+        "name": "Tinh Chất Some By Mi Galactomyces",
+        "price": "420.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lw9i9l6s47a3bc.webp",
+        "rating": 4,
+        "reviewCount": 712,
+        "brand": "Some By Mi"
+      },
+      {
+        "id": 13,
+        "name": "Kem Dưỡng IOPE Super Vital Cream",
+        "price": "1.450.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lw9i9l6s47a3bc.webp",
+        "rating": 5,
+        "reviewCount": 189,
+        "brand": "IOPE"
+      },
+      {
+        "id": 14,
+        "name": "Chống Nắng The Ordinary Mineral UV Filters",
+        "price": "350.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lw9i9l6s47a3bc.webp",
+        "rating": 3,
+        "reviewCount": 510,
+        "brand": "The Ordinary"
+      },
+      {
+        "id": 15,
+        "name": "Kem Trang Điểm MAC Studio Fix",
+        "price": "950.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lw9i9l6s47a3bc.webp",
+        "rating": 5,
+        "reviewCount": 920,
+        "brand": "MAC"
+      },
+      {
+        "id": 16,
+        "name": "Mặt Nạ Some By Mi Super Matcha",
+        "price": "210.000đ",
+        "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lw9i9l6s47a3bc.webp",
+        "rating": 4,
+        "reviewCount": 800,
+        "brand": "Some By Mi"
+      }
+    ]
+  }
+  

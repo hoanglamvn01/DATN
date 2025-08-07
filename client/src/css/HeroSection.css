@@ -1,0 +1,36 @@
+.composite-image-container {
+  position: relative;
+  width: 300px;
+  height: 360px;
+  margin-left: -40px;
+  margin-top: -170px;
+  margin-bottom: 170px;
+
+}
+
+.layer {
+  position: absolute;
+  max-width: 420px;
+  height: auto;
+}
+
+.img1 {
+  top: 20px;
+  left: 0;
+  z-index: 1;
+  transform: rotate(-2deg);
+}
+
+.img2 {
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transform: scale(1.05);
+}
+
+.img3 {
+  top: 30px;
+  left: 10px;
+  z-index: 0;
+  transform: rotate(10deg);
+}

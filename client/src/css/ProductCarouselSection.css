@@ -1,0 +1,194 @@
+/* --- client/src/css/ProductCarouselSection.css --- */
+
+/* 1. CONTAINER CHUNG CỦA SECTION CAROUSEL */
+.product-carousel-section-container {
+    background-color: #fcf8f3; /* Màu nền nhạt */
+    padding: 60px 0; /* Padding trên dưới */
+    text-align: center;
+    overflow: hidden; /* Quan trọng để cuộn ngang */
+    font-family: 'Raleway', sans-serif; /* Font chung cho section */
+    border-top: 1px solid #eee; /* Đường phân cách giữa các section */
+}
+
+/* 2. TIÊU ĐỀ SECTION (VÍ DỤ: "The itchy scalp soothers") */
+.section-carousel-title {
+    font-family: 'Playfair Display', serif; /* Font serif */
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a2a4b;
+    margin-bottom: 10px;
+}
+
+/* 3. TIÊU ĐỀ PHỤ / MÔ TẢ SECTION */
+.section-carousel-subtitle {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+    padding: 0 20px; /* Padding hai bên cho văn bản */
+}
+
+/* 4. KHUNG CHỨA CAROUSEL SẢN PHẨM (Có thể cuộn ngang) */
+.product-carousel-wrapper {
+    display: flex;
+    flex-wrap: nowrap; /* NGĂN KHÔNG CHO THẺ XUỐNG DÒNG */
+    overflow-x: auto; /* KÍCH HOẠT CUỘN NGANG */
+    -webkit-overflow-scrolling: touch; /* Cuộn mượt hơn trên iOS */
+    scrollbar-width: none; /* ẨN THANH CUỘN CHO FIREFOX */
+    -ms-overflow-style: none; /* ẨN THANH CUỘN CHO IE/EDGE */
+    padding: 20px; /* Padding xung quanh các thẻ sản phẩm trong khung cuộn */
+    gap: 25px; /* KHOẢNG CÁCH GIỮA CÁC THẺ SẢN PHẨM */
+}
+
+.product-carousel-wrapper::-webkit-scrollbar {
+    display: none; /* ẨN THANH CUỘN CHO CHROME/SAFARI */
+}
+
+/* 5. THẺ SẢN PHẨM RIÊNG LẺ TRONG CAROUSEL */
+.carousel-product-card {
+    flex: 0 0 auto; /* Ngăn thẻ co/giãn và giữ kích thước cố định */
+    width: 250px; /* CHIỀU RỘNG CỐ ĐỊNH CỦA MỖI THẺ SẢN PHẨM */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Cho badge positioning */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.carousel-product-card:hover {
+    transform: translateY(-5px); /* Nâng thẻ lên khi di chuột */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* Đổ bóng mạnh hơn */
+}
+
+/* 6. BADGE (BESTSELLER, WORTH X) */
+.carousel-product-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #f7b731; /* Màu vàng cam */
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    z-index: 10;
+}
+
+/* 7. KHUNG ẢNH SẢN PHẨM */
+.carousel-product-image-link {
+    display: block;
+    width: 100%;
+    height: 250px; /* CHIỀU CAO CỐ ĐỊNH CHO KHUNG ẢNH */
+    overflow: hidden;
+    background-color: #f8f8f8; /* Nền nhẹ cho ảnh */
+}
+.carousel-product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* ẢNH HIỂN THỊ TOÀN BỘ TRONG KHUNG */
+    display: block;
+}
+
+/* 8. THÔNG TIN SẢN PHẨM (TÊN, GIÁ, RATING) */
+.carousel-product-info {
+    padding: 15px;
+    text-align: left;
+    flex-grow: 1; /* Cho phần này chiếm đủ chiều cao */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Đẩy nút xuống dưới cùng */
+}
+
+.carousel-product-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    height: 40px; /* CHIỀU CAO CỐ ĐỊNH CHO 2 DÒNG TÊN */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Giới hạn 2 dòng */
+    -webkit-box-orient: vertical;
+}
+
+.carousel-product-rating {
+    color: #ffc107; /* Màu sao */
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.carousel-product-rating .rating-value {
+    color: #777;
+    margin-left: 5px;
+    font-style: italic;
+}
+
+.carousel-product-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a2a4b;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* 9. NÚT "THÊM VÀO GIỎ" */
+.carousel-add-button {
+    display: block; /* Chiếm hết chiều rộng */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #1a2a4b;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #1a2a4b;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.carousel-add-button:hover {
+    background-color: #1a2a4b;
+    color: #fff;
+}
+
+/* 10. RESPONSIVE CHO MOBILE */
+@media (max-width: 768px) {
+    .product-carousel-section-container {
+        padding: 40px 0;
+    }
+    .section-carousel-title {
+        font-size: 28px;
+    }
+    .section-carousel-subtitle {
+        font-size: 16px;
+    }
+    .product-carousel-wrapper {
+        padding: 10px;
+        gap: 15px;
+    }
+    .carousel-product-card {
+        width: 180px; /* Chiều rộng thẻ nhỏ hơn trên mobile */
+    }
+    .carousel-product-image-link {
+        height: 180px;
+    }
+    .carousel-product-info {
+        padding: 10px;
+    }
+    .carousel-product-name {
+        font-size: 15px;
+        height: 36px;
+    }
+    .carousel-product-price {
+        font-size: 16px;
+    }
+    .carousel-add-button {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

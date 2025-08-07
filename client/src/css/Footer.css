@@ -1,0 +1,85 @@
+.footer {
+  background-color: #f9fafb;
+  font-family: 'Inter', sans-serif;
+  padding: 20px 110px;
+  color: #333;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e91e63;
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #e91e63;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.social-icons a {
+  color: #e91e63;
+  margin-right: 10px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.footer-column h4 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 6px;
+}
+
+.contact-info i {
+  margin-right: 8px;
+  color: #e91e63;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #666;
+}
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #444;
+}
+
+.footer-column a:hover {
+  color: #ff4081;
+}

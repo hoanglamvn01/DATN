@@ -1,0 +1,161 @@
+/* 📁 client/src/css/CartSidebar.css */
+
+/* Overlay nền mờ */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+}
+
+.cart-overlay.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Sidebar chính */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 420px; /* Chiều rộng sidebar */
+  max-width: 90vw;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%); /* Ẩn sidebar ban đầu */
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Hiệu ứng trượt */
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Raleway', sans-serif;
+}
+
+.cart-sidebar.open {
+  transform: translateX(0); /* Hiện sidebar */
+}
+
+/* Header */
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+}
+
+.cart-header .MuiIconButton-root {
+  padding: 0;
+  color: #555;
+}
+
+/* Danh sách sản phẩm */
+.cart-items {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto; /* Cho phép cuộn khi danh sách dài */
+}
+
+.empty-cart-message {
+  text-align: center;
+  color: #888;
+  padding: 40px 0;
+  font-style: italic;
+}
+
+.cart-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.item-image {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-details {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.item-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.item-price {
+  font-size: 15px;
+  color: #555;
+  font-weight: bold;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  width: fit-content;
+  border-radius: 50px;
+  margin-top: 10px;
+}
+
+.quantity-value {
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+.quantity-controls .MuiIconButton-root {
+  padding: 4px;
+  color: #555;
+}
+
+.item-actions .MuiIconButton-root {
+  color: #888;
+}
+
+/* Footer (Tổng tiền và nút Thanh toán) */
+.cart-footer {
+  padding: 20px;
+  border-top: 1px solid #eee;
+  background-color: #f9f9f9;
+}
+
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.subtotal-price {
+  color: #1a2a4b;
+  font-weight: 700;
+}
+
+.checkout-button {
+  width: 100%;
+  background-color: #1a2a4b !important;
+  color: #fff !important;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 16px;
+}

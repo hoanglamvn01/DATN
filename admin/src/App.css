@@ -1,0 +1,214 @@
+/* index.css (hoặc một file CSS toàn cục khác) */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #213547; /* Thay đổi màu chữ mặc định để dễ đọc hơn */
+  background-color: #f8f9fa; /* Nền sáng hơn cho tổng thể */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-height: 100vh; /* Đảm bảo body chiếm toàn bộ chiều cao màn hình */
+  place-items: center;
+  justify-content: center; /* Căn giữa nội dung nếu cần */
+  overflow-x: hidden; /* Tránh scroll ngang không mong muốn */
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: #333; /* Màu sắc tiêu đề tối hơn */
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+/* Các styles liên quan đến Vite/React logo, bạn có thể giữ nguyên nếu muốn */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center; /* Giữ lại nếu muốn nội dung chính căn giữa */
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* --- Styles tùy chỉnh cho CategoryManager --- */
+.category-manager-container {
+  background-color: #ffffff;
+  border-radius: 12px; /* Bo tròn góc hơn */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Đổ bóng mềm mại hơn */
+  padding: 2.5rem; /* Tăng padding */
+  max-width: 700px; /* Tăng chiều rộng tối đa */
+  margin: 2rem auto; /* Căn giữa và có khoảng cách trên dưới */
+}
+
+.category-manager-title {
+  font-size: 2.5rem; /* Tiêu đề lớn hơn */
+  font-weight: 700; /* Đậm hơn */
+  color: #34495e; /* Màu tiêu đề hiện đại */
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-section {
+  background-color: #f0f4f8; /* Nền form nhẹ nhàng */
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid #e0e6ed; /* Viền mỏng cho form */
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem; /* Tăng padding input */
+  margin-bottom: 1rem;
+  border: 1px solid #c8d1da; /* Viền input mềm mại */
+  border-radius: 6px; /* Bo tròn input */
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.form-input:focus {
+  outline: none;
+  border-color: #4a90e2; /* Màu viền khi focus */
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); /* Đổ bóng nhẹ khi focus */
+}
+
+.form-textarea {
+  min-height: 80px; /* Chiều cao tối thiểu cho textarea */
+  resize: vertical; /* Cho phép resize theo chiều dọc */
+}
+
+.submit-button {
+  width: 100%; /* Nút chiếm toàn bộ chiều rộng */
+  padding: 0.8rem 1.5rem;
+  background-color: #4a90e2; /* Màu xanh hiện đại */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+.submit-button:hover {
+  background-color: #357bd8;
+  transform: translateY(-1px); /* Hiệu ứng nhấn nhẹ */
+}
+.submit-button:active {
+  transform: translateY(0);
+}
+
+
+.category-list {
+  list-style: none; /* Bỏ dấu chấm đầu dòng của ul */
+  padding: 0;
+  margin: 0;
+}
+
+.category-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e6ed;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem; /* Tăng padding item */
+  margin-bottom: 0.75rem; /* Khoảng cách giữa các item */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.category-item:hover {
+  transform: translateY(-3px); /* Hiệu ứng nhấc nhẹ lên khi hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.category-info h3 {
+  font-size: 1.3rem; /* Tên danh mục lớn hơn */
+  color: #34495e;
+  margin-bottom: 0.25rem;
+}
+
+.category-info p {
+  font-size: 0.95rem; /* Mô tả rõ ràng hơn */
+  color: #7f8c8d;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.75rem; /* Khoảng cách giữa các nút */
+}
+
+.action-button {
+  padding: 0.6rem 1.2rem; /* Kích thước nút hành động */
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.edit-button {
+  background-color: #f7b11d; /* Màu vàng cam */
+  color: white;
+}
+.edit-button:hover {
+  background-color: #e09a00;
+}
+
+.delete-button {
+  background-color: #e74c3c; /* Màu đỏ */
+  color: white;
+}
+.delete-button:hover {
+  background-color: #c0392b;
+}
