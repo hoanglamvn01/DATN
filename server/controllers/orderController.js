@@ -175,6 +175,9 @@ export const deleteOrder = async (req, res) => {
 
 // Hàm tạo đơn hàng (createOrder) - ĐÃ ĐƯỢC HOÀN THIỆN logic ĐẦY ĐỦ NHẤT
 export const createOrder = async (req, res) => {
+    console.log("=== CREATE ORDER DEBUG ===");
+    console.log("Request body:", JSON.stringify(req.body, null, 2));
+    
     const {
         userId,
         addressId,
@@ -184,11 +187,33 @@ export const createOrder = async (req, res) => {
         totalAmount,
         paymentMethod,
         couponCode,
+        recipientName,
+        recipientPhone,
+        newAddress
     } = req.body;
 
+    console.log("Extracted data:");
+    console.log("- userId:", userId);
+    console.log("- addressId:", addressId);
+    console.log("- items:", items);
+    console.log("- shippingFee:", shippingFee);
+    console.log("- discount:", discount);
+    console.log("- totalAmount:", totalAmount);
+    console.log("- paymentMethod:", paymentMethod);
+    console.log("- recipientName:", recipientName);
+    console.log("- recipientPhone:", recipientPhone);
+    console.log("- newAddress:", newAddress);
+
     // Validate dữ liệu cơ bản
-    if (!userId || !addressId || !items || items.length === 0) {
+    if (!userId || !items || items.length === 0) {
+        console.log("❌ Validation failed: userId or items missing");
         return res.status(400).json({ error: 'Dữ liệu đơn hàng không hợp lệ.' });
+    }
+    
+    // Validate address - cần có addressId HOẶC newAddress
+    if (!addressId && !newAddress) {
+        console.log("❌ Validation failed: no address information");
+        return res.status(400).json({ error: 'Vui lòng cung cấp thông tin địa chỉ giao hàng.' });
     }
 
     const paymentStatus = paymentMethod === 'cod' ? 'paid' : 'pending';
@@ -206,17 +231,37 @@ export const createOrder = async (req, res) => {
     try {
         await beginTransaction();
 
-        // Bước 1: Lấy thông tin địa chỉ đầy đủ từ addressId để lưu vào đơn hàng
-        const addressQuery = `SELECT full_name, phone_number, address_line, ward, district, province FROM user_addresses WHERE address_id = ? AND user_id = ?`;
-        const addressResult = await queryDatabase(addressQuery, [addressId, userId]);
+        // Bước 1: Xử lý thông tin địa chỉ
+        let finalAddressId;
+        
+        if (newAddress) {
+            // Nếu có newAddress, tạo địa chỉ mới trong database
+            const generatedAddressId = uuidv4(); // Tạo UUID cho address_id
+            const insertAddressSql = `INSERT INTO user_addresses (address_id, user_id, full_name, phone_number, province, district, ward, address_line) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+            const addressResult = await queryDatabase(insertAddressSql, [
+                generatedAddressId, userId, recipientName, recipientPhone, newAddress.province, newAddress.district, newAddress.ward, newAddress.address
+            ]);
+            finalAddressId = generatedAddressId; // Sử dụng UUID thay vì insertId
+            
+            finalRecipientName = recipientName;
+            finalRecipientPhone = recipientPhone;
+            finalShippingAddressString = `${newAddress.address}, ${newAddress.ward}, ${newAddress.district}, ${newAddress.province}`;
+        } else if (addressId) {
+            // Sử dụng địa chỉ có sẵn
+            finalAddressId = addressId;
+            const addressQuery = `SELECT full_name, phone_number, address_line, ward, district, province FROM user_addresses WHERE address_id = ? AND user_id = ?`;
+            const addressResult = await queryDatabase(addressQuery, [addressId, userId]);
 
-        if (addressResult.length === 0) {
-            throw new Error('Địa chỉ không hợp lệ hoặc không thuộc về người dùng này.');
+            if (addressResult.length === 0) {
+                throw new Error('Địa chỉ không hợp lệ hoặc không thuộc về người dùng này.');
+            }
+            const address = addressResult[0];
+            finalRecipientName = address.full_name;
+            finalRecipientPhone = address.phone_number;
+            finalShippingAddressString = `${address.address_line}, ${address.ward}, ${address.district}, ${address.province}`;
+        } else {
+            throw new Error('Không có thông tin địa chỉ hợp lệ.');
         }
-        const address = addressResult[0];
-        finalRecipientName = address.full_name;
-        finalRecipientPhone = address.phone_number;
-        finalShippingAddressString = `${address.address_line}, ${address.ward}, ${address.district}, ${address.province}`;
 
         // Bước 2: Chèn bản ghi đơn hàng chính (KHÔNG có order_id, để DB tự tạo)
         const insertOrderSql = `
@@ -225,7 +270,7 @@ export const createOrder = async (req, res) => {
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         `;
         const orderResult = await queryDatabase(insertOrderSql, [
-            userId, addressId, totalAmount, shippingFee, discount, paymentMethod,
+            userId, finalAddressId, totalAmount, shippingFee, discount, paymentMethod,
             paymentStatus, orderStatus, couponCode || null, finalRecipientName,
             finalRecipientPhone, finalShippingAddressString
         ]);
